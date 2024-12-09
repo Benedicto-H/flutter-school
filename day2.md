@@ -44,6 +44,17 @@ void main() {
 }
 ```
 
+```dart
+int add(int number1, int number2) {
+  return number1 + number2;
+}
+
+void main() {
+  int result = add(2, 3);
+  print(result);
+}
+```
+
 print문은 대표적인 함수입니다. $를 활용해 문자열보간법 구현이 가능합니다.
 
 ```dart
@@ -83,9 +94,16 @@ void main() {
 ```dart
 void main() {
   var greet = (String name) {
-    print('Hello, $name!');
+    print('Hello $name');
   };
-  greet('Alice');
+  
+  var sayHello = greet;
+
+  sayHello('Ned');
+  
+  (String name) {
+    print('Hello $name');
+  }('Ned');
 }
 ```
 
@@ -97,30 +115,40 @@ void main() {
 
 ```dart
 void main() {
-  // 람다 표현식
-  var greet = (String name) => print('Hello, $name!');
-  greet('Bob');
-
-  // 람다 표현식을 이용한 리스트 처리
-  var numbers = [1, 2, 3, 4, 5];
-  numbers.forEach((number) => print(number * 2));
-
-  // 람다 표현식을 이용한 조건문
-  var isEven = (int number) => number % 2 == 0;
-  print(isEven(4)); // 출력: true
+  // 람다 표현식=
+  var greet_anoymous = (String name) { 
+    print('Hello $name'); 
+  };
+  greet_anoymous('Ned');
+  
+  // 화살표 함수 (람다식)
+  var greet_arrow = (String name) => print('Hello $name'); 
+  greet_arrow('Ned');
+  
+  var isEven = (int number) {
+    return number % 2 == 0;
+  };
+  
+  isEven = (int number) => number % 2 == 0;
+  
+  print(isEven(4));
+  print(isEven(5));
 }
 ```
 
 함수 정의에서 {}로 감싼 매개변수는 선택사항이 됩니다. 호출할 때 매개변수명을 값 앞에 써서 사용하기 때문에 명명된 매개변수(named parameter)라고 부릅니다. 매개변수의 이름으로 직접 값을 전달하기 때문에 순서를 신경쓰지 않아도 됩니다. 대신 함수 선언에 기본값을 정해줄 필요가 있습니다.
 
 ```dart
-void printPersonInfo({String name = 'Ned', int age = 13, String city = '수원'}) {
+void printPersonInfo({String name = 'Ned', int age = 13, String city = '서울'}) {
   print('이름: $name, 나이: $age, 도시: $city');
 }
 
 void main() {
-  printPersonInfo(name: '홍길동', age: 30, city: '서울'); // 모든 매개변수 전달
-  printPersonInfo(name: '김철수', city: '부산'); // 일부 매개변수만 전달
+  printPersonInfo(name: '홍길동', age: 30, city: '서울');
+  printPersonInfo(city: '서울', age: 30, name: '홍길동');
+  printPersonInfo(city: '서울', age: 30);
+  printPersonInfo(age: 30);
+  printPersonInfo();
 }
 ```
 
@@ -132,10 +160,25 @@ if-else문의 조건은 반드시 ()를 사용해야합니다.
 void main() {
   int age = 20;
 
-  if (age >= 18) {
-    print('성인입니다.');
+  /*
+  String result = '';
+
+  if (age > 18) {
+    result = '성인';
   } else {
-    print('미성년입니다.');
+    result = '미성년';
+  }
+  */
+
+  String result = (age > 18) ? '성인' : '미성년';
+  print(result);
+
+  // 위와 같은 삼항식은 피할 수 있다면 피해보자
+
+  String result2 = '미성년';
+
+  if (age > 18) {
+    result2 = '성인';
   }
 }
 ```
