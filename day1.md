@@ -125,6 +125,34 @@ void main() {
 }
 ```
 
+## 증감 연산자
+```dart
+void main() {
+  /*
+   증감 연산자를 알아봅시다.
+   
+   ++ 
+   --
+   */
+
+  int age = 12;
+  int old = age;
+  // swift 식 표현으로
+  // age += 1
+  
+  // 후위연산은 일단 할당부터 하고, 증감은 나중에
+  old = age++;
+  print(old);
+  print(age);
+  
+  
+  // 전위연산은 증감부터 시키고 할당은 그 다음에
+  old = ++age;
+  print(old);
+  print(age);
+}
+```
+
 ## 비교 연산자
 ```dart
 void main() {
