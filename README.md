@@ -1,5 +1,9 @@
 # flutter-school
-Flutter School 강의 자료
+## 영상 보기 
+
+- [YouTube 재생목록](https://www.youtube.com/playlist?list=PLHmdImeDeuNnVE6B5ViwsyiAx6-w6VXpc)
+
+## Flutter School 강의 자료
 
 - [Day 1 - Dart 언어 (타입과 연산자)](day1.md)
 - [Day 2 - Dart 언어 (함수와 제어문)](day2.md)
