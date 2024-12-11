@@ -1,6 +1,7 @@
 # flutter-school
 Flutter School 강의 자료
 
-- [Day 1 - Dart 언어](day1.md)
-- [Day 2 - Dart 언어](day2.md)
-- [Day 3 - Dart 언어](day3.md)
+- [Day 1 - Dart 언어 (타입과 연산자)](day1.md)
+- [Day 2 - Dart 언어 (함수와 제어문)](day2.md)
+- [Day 3 - Dart 언어 (객체지향 프로그래밍)](day3.md)
+- [Day 3 - Dart 언어 (컬렉션과 함수형 프로그래밍)](day4.md)
