@@ -1,4 +1,4 @@
-# flutter-school
+# 플루터스쿨
 ## 영상 보기 
 
 - [YouTube 재생목록](https://www.youtube.com/playlist?list=PLHmdImeDeuNnVE6B5ViwsyiAx6-w6VXpc)
