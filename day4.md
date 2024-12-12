@@ -1,6 +1,115 @@
 ## Day 4 
 # Dart 언어
 
+## Tips
+
+## Dart에서 final과 const 키워드의 차이점
+
+### final
+- 런타임 시에 한 번만 값을 할당할 수 있습니다. 즉, 변수가 선언될 때 값이 정해지지 않아도 됩니다.
+- 변수의 값이 한 번만 할당되면 변경되지 않도록 보장하고 싶을 때 사용합니다.
+- 클래스의 멤버 변수를 초기화하거나, 함수의 매개변수를 상수로 만들고 싶을 때 사용합니다.
+- 변수의 값이 한 번만 설정되면 되고, 컴파일 시에 값을 알 수 없는 경우에 사용합니다. (예: 사용자 입력 값, API 호출 결과 등)
+
+### const
+- 컴파일 시에 값이 결정됩니다. 즉, 변수가 선언될 때 값이 반드시 상수 표현식으로 초기화되어야 합니다.
+- 컴파일 시에 값이 결정되는 상수를 만들고 싶을 때 사용합니다.
+- 불변 객체를 만들거나, 리터럴 값을 대체하여 코드를 더 명확하게 만들고 싶을 때 사용합니다.
+- 값이 절대 변하지 않는 상수를 만들고 싶을 때 사용합니다.
+- 예: 수학 상수(pi), 색상 코드, enum 값 등
+
+### 3. 예시
+
+```dart
+// final 예시
+final name = '홍길동'; // 런타임에 값이 할당됨
+final age = 30;
+
+// const 예시
+const pi = 3.14159; // 컴파일 시에 값이 결정됨
+const colors = ['red', 'green', 'blue'];
+
+// 클래스에서 사용
+class Person {
+  final String name;
+  final int age;
+
+  Person(this.name, this.age);
+}
+```
+
+| 구분 | final | const |
+|---|---|---|
+| 초기화 시점 | 런타임 | 컴파일 |
+| 사용 용도 | 변수 값 한 번 할당, 불변성 보장 | 상수 생성, 불변 객체 생성 |
+| 특징 | 런타임에 값이 결정될 수 있음 | 컴파일 시에 값이 결정되어야 함 |
+
+## Private property
+- 클래스 내부에서만 접근 가능한 속성
+- private property를 선언하려면 변수 이름 앞에 언더스코어(_)를 붙입니다.
+
+```dart
+class Person {
+  String _name; // private property
+  int _age; // private property
+
+  // 생성자
+  Person(this._name, this._age);
+}
+```
+
+- private property에 직접 외부에서 접근할 수는 없지만, getter와 setter를 통해 간접적으로 값을 읽고 변경할 수 있습니다.
+
+```dart
+class Person {
+  String _name;
+  int _age;
+
+  Person(this._name, this._age);
+
+  String get name => _name; // getter
+  int get age => _age;
+}
+```
+
+```dart
+class Person {
+  String _name;
+  int _age;
+
+  Person(this._name, this._age);
+
+  set name(String newName) {
+    _name = newName;
+  }
+
+  set age(int newAge) {
+    if (newAge >= 0) {
+      _age = newAge;
+    } else {
+      print('나이는 0 이상이어야 합니다.');
+    }
+  }
+}
+```
+
+```dart
+void main() {
+  var person = Person('홍길동', 30);
+
+  // getter를 사용하여 값 읽기
+  print(person.name); // 홍길동
+  print(person.age); // 30
+
+  // setter를 사용하여 값 변경
+  person.name = '김철수';
+  person.age = 25;
+
+  print(person.name); // 김철수
+  print(person.age); // 25
+}
+```
+
 
 ## 컬렉션
 
