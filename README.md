@@ -11,3 +11,4 @@
 - [Day 4 - Dart 언어 (컬렉션)](day4.md)
 - [Day 5 - Dart 언어 (함수형 프로그래밍)](day5.md)
 - [Day 6 - Dart 언어 (Flutter와 위젯과 레이아웃)](day6.md)
+- [Day 6 - Dart 언어 (Flutter로 통신하는 앱 만들기)](day7.md)
