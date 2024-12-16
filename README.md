@@ -10,3 +10,4 @@
 - [Day 3 - Dart 언어 (객체지향 프로그래밍)](day3.md)
 - [Day 4 - Dart 언어 (컬렉션)](day4.md)
 - [Day 5 - Dart 언어 (함수형 프로그래밍)](day5.md)
+- [Day 6 - Dart 언어 (Flutter와 위젯과 레이아웃)](day6.md)

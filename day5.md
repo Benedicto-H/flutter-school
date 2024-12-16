@@ -104,7 +104,7 @@ void main() {
 
 ## 그밖의 문법들
 
-Dart의 계단식 표기법 (Cascade Notation)
+### Dart의 계단식 표기법 (Cascade Notation)
 - Dart의 계단식 표기법은 동일한 객체에 대한 연속적인 메서드 호출을 간결하게 표현하는 방법입니다. 마치 계단처럼 메서드 호출을 이어나갈 수 있다는 의미에서 '계단식'이라는 표현을 사용합니다. 주로 객체를 생성하고 초기화하거나 여러 속성을 연속적으로 설정할 때 유용하게 사용됩니다.
 
 ```
@@ -151,6 +151,8 @@ void main() {
   print(product); // Product(name: Gaming Laptop, price: 1299.99, stock: 5)
 }
 ```
+
+### 컬렉션 if 문법
 
 Dart 언어의 컬렉션 if 문법은 조건에 따라 컬렉션의 요소를 동적으로 포함시킬 수 있는 유용한 기능입니다. 이 기능을 사용하면 리스트, 맵 또는 셋과 같은 컬렉션에서 조건에 따라 값을 추가하거나 생략할 수 있습니다. 이를 통해 더 간결하고 가독성 높은 코드를 작성할 수 있습니다.
 
@@ -212,7 +214,8 @@ void main() {
 
 ```
 
-Null 안전성 (Null Safety)
+### Null 안전성 (Null Safety)
+
 - Dart 2.12부터 Null Safety가 도입되어 변수에 null 값을 할당할 수 있는지 여부를 명시적으로 지정할 수 있습니다. 기본적으로 모든 변수는 null이 될 수 없습니다. 
 - 여기서 int?는 null이 될 수 있는 정수를 나타냅니다. 반면 int는 null이 될 수 없는 정수를 나타냅니다.
 
@@ -225,7 +228,8 @@ int? nullableInt;
 nullableInt = null;
 ```
 
-Null 병합 연산자 (??)
+### Null 병합 연산자 (??)
+
 - null 병합 연산자는 왼쪽 피연산자가 null인지 확인하고, null이면 오른쪽 피연산자를 반환합니다. 이는 기본값을 제공할 때 유용합니다.
 
 ```dart
@@ -234,7 +238,8 @@ int value = nullableInt ?? 0; // nullableInt가 null이면 0을 사용
 
 ```
 
-Null 접근 연산자 (?.)
+### Null 접근 연산자 (?.)
+
 - null 접근 연산자는 객체가 null인 경우에도 안전하게 해당 객체의 속성이나 메서드에 접근할 수 있도록 합니다. 객체가 null이면 null을 반환합니다.
 
 ```dart
@@ -246,7 +251,8 @@ Person? person;
 String? name = person?.name; // person이 null이면 name은 null
 ```
 
-강제 null 확인 연산자 (!)
+### 강제 null 확인 연산자 (!)
+
 - 강제 null 확인 연산자는 변수나 표현식이 null이 아님을 보장할 때 사용됩니다. 이 연산자는 변수에 null 값이 있으면 예외를 발생시킵니다.
 
 ```dart
@@ -255,7 +261,8 @@ nullableInt = 42;
 int nonNullableInt = nullableInt!; // nullableInt가 null이 아님을 보장
 ```
 
-null-aware 할당 연산자 (??=)
+### null-aware 할당 연산자 (??=)
+
 - null-aware 할당 연산자는 변수가 null일 때만 값을 할당합니다.
 
 ```dart
