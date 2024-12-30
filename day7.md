@@ -209,17 +209,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter TextField Example',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('텍스트 입력'),
-        ),
-        body: Center(
-          child: MyTextField(
-            onChanged: (value) {
-              // 텍스트 필드 값이 변경될 때 실행되는 함수
-              print('입력된 값: $value');
-            },
+      home: MyInheritedWidget(
+        color: Colors.blue,
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text('InheritedWidget Example'),
+          ),
+          body: Center(
+            child: MyTextWidget(),
           ),
         ),
       ),
@@ -227,34 +224,30 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyTextField extends StatefulWidget {
-  final ValueChanged<String> onChanged;
+class MyInheritedWidget extends InheritedWidget {
+  final Color color;
 
-  const MyTextField({Key? key, required this.onChanged}) : super(key: key);
+  const MyInheritedWidget({
+    Key? key,
+    required this.color,
+    required Widget child,
+  }) : super(key: key, child: child);
 
-  @override
-  _MyTextFieldState createState() => _MyTextFieldState();
-}
-
-class _MyTextFieldState extends State<MyTextField> {
-  final TextEditingController _controller = TextEditingController();
-
-  @override
-  void initState() {
-    super.initState();
-    _controller.addListener(() {
-      widget.onChanged(_controller.text);
-    });
+  static MyInheritedWidget? of(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<MyInheritedWidget>();
   }
 
   @override
+  bool updateShouldNotify(MyInheritedWidget oldWidget) {
+    return color != oldWidget.color;
+  }
+}
+
+class MyTextWidget extends StatelessWidget {
+  @override
   Widget build(BuildContext context) {
-    return TextField(
-      controller: _controller,
-      onChanged: (value) {
-        // 여기에 값이 변경될 때 실행할 코드를 작성합니다.
-      },
-    );
+    final color = MyInheritedWidget.of(context)!.color;
+    return Text('색상은 $color 입니다.', style: TextStyle(color: color));
   }
 }
 ```
