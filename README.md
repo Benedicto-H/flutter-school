@@ -12,3 +12,4 @@
 - [Day 5 - Dart 언어 (함수형 프로그래밍)](day5.md)
 - [Day 6 - Dart 언어 (Flutter와 위젯과 레이아웃)](day6.md)
 - [Day 7 - Dart 언어 (Flutter로 상태 관리하기)](day7.md)
+- [Day 9 - 메모장 앱 만들기](day9.md)
