@@ -53,18 +53,14 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _navigateToEditNote(int index) async {
-    // Get the current note text
     String currentNote = _notes[index];
 
-    // Navigate to the edit note page
     final editedNote = await Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => EditNotePage(currentNote: currentNote),
       ),
     );
-
-    // Update the note if modified
     if (editedNote != null) {
       setState(() {
         _notes[index] = editedNote;
@@ -159,11 +155,11 @@ class _EditNotePageState extends State<EditNotePage> {
             TextField(
               controller: _controller,
               decoration: const InputDecoration(hintText: 'Edit your memo'),
-              maxLines: null, // Allow multiline editing
+              maxLines: null,
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.pop(context, _controller.text); // Pop with edited text
+                Navigator.pop(context, _controller.text); 
               },
               child: const Text("Save"),
             ),
